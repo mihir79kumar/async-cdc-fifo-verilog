@@ -59,12 +59,12 @@ Due to the independent clock frequencies, direct binary pointer crossing can lea
 ========================================
 
 [T1] Reset Behaviour
-  PASS | MPTY asserted after reset
-  PASS |  L  deasserted after reset
+  PASS | EMPTY asserted after reset
+  PASS | FULL  deasserted after reset
 
 [T2] Write Until Full
-  PASS | LL asserts after 8 writes
-  PASS |  EMPTY stays low when full
+  PASS | FULL asserts after 8 writes
+  PASS | EMPTY stays low when full
 
 [T3] Read Until Empty -- Data Integrity
   PASS | Data in order  [expected=0x01  got=0x01]
@@ -75,22 +75,22 @@ Due to the independent clock frequencies, direct binary pointer crossing can lea
   PASS | Data in order  [expected=0x06  got=0x06]
   PASS | Data in order  [expected=0x07  got=0x07]
   PASS | Data in order  [expected=0x08  got=0x08]
-  PASS |  asserts after full drain
-  PASS |   FULL  clears after drain
+  PASS | EMPTY asserts after full drain
+  PASS | FULL  clears after drain
 
 [T4] Simultaneous Write + Read
-  PASS |  after balanced write+read
+  PASS | Not full after balanced write+read
   INFO | Simultaneous CDC ops completed without lockup
-  PASS |  er draining all remainder
+  PASS | EMPTY after draining all remainder
 
 [T5] Write-When-Full Rejection
-  PASS |  L before overflow attempt
-  PASS |  FULL after rejected write
-  PASS |  1) after overflow attempt
+  PASS | FULL before overflow attempt
+  PASS | Still FULL after rejected write
+  PASS | First byte uncorrupted (0x01) after overflow attempt
 
 [T6] Read-When-Empty Rejection
-  PASS | rmed before spurious read
-  PASS |  EMPTY after spurious read
+  PASS | EMPTY confirmed before spurious read
+  PASS | Still EMPTY after spurious read
   INFO | Empty flag held -- no ghost data produced
 
 ========================================

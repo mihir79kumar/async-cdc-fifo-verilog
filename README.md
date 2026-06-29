@@ -48,7 +48,7 @@ Due to the independent clock frequencies, direct binary pointer crossing can lea
 *Behavioral simulation tracking the asynchronous interaction between `clk_w` and `clk_r`, demonstrating stable Gray code pointer transfers and synchronized flag state transitions.*
 
 <p align="center">
-  <img src="async_fifo.png" alt="Simulation Waveforms" width="85%">
+  <img src="async_FIFO.png" alt="Simulation Waveforms" width="85%">
 </p>
 
 ### 3. TCL Console Verification Output

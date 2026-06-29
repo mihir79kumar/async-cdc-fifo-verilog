@@ -41,14 +41,14 @@ Due to the independent clock frequencies, direct binary pointer crossing can lea
 *The structural RTL block schematic highlights clear domain isolation connected through the dual-port RAM block and cross-domain synchronization logic paths.*
 
 <p align="center">
-  <img src="elaborated_design.png" alt="Elaborated Design RTL" width="85%">
+  <img src="fifo_design.png" alt="Elaborated Design RTL" width="85%">
 </p>
 
 ### 2. Simulation Waveforms
 *Behavioral simulation tracking the asynchronous interaction between `clk_w` and `clk_r`, demonstrating stable Gray code pointer transfers and synchronized flag state transitions.*
 
 <p align="center">
-  <img src="waveform.png" alt="Simulation Waveforms" width="85%">
+  <img src="async_fifo.png" alt="Simulation Waveforms" width="85%">
 </p>
 
 ### 3. TCL Console Verification Output

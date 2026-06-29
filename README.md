@@ -53,18 +53,18 @@ Due to the independent clock frequencies, direct binary pointer crossing can lea
 
 ### 3. TCL Console Verification Output
 ```text
-================================================
+========================================
   CDC ASYNC FIFO -- Self-Checking TB    
   clk_w=50MHz  clk_r=75MHz  depth=8    
-================================================
+========================================
 
 [T1] Reset Behaviour
-  PASS | EMPTY asserted after reset
-  PASS | FULL  deasserted after reset
+  PASS | MPTY asserted after reset
+  PASS |  L  deasserted after reset
 
 [T2] Write Until Full
-  PASS | FULL asserts after 8 writes
-  PASS | EMPTY stays low when full
+  PASS | LL asserts after 8 writes
+  PASS |  EMPTY stays low when full
 
 [T3] Read Until Empty -- Data Integrity
   PASS | Data in order  [expected=0x01  got=0x01]
@@ -75,25 +75,25 @@ Due to the independent clock frequencies, direct binary pointer crossing can lea
   PASS | Data in order  [expected=0x06  got=0x06]
   PASS | Data in order  [expected=0x07  got=0x07]
   PASS | Data in order  [expected=0x08  got=0x08]
-  PASS | EMPTY asserts after full drain
-  PASS | FULL  clears after drain
+  PASS |  asserts after full drain
+  PASS |   FULL  clears after drain
 
 [T4] Simultaneous Write + Read
+  PASS |  after balanced write+read
   INFO | Simultaneous CDC ops completed without lockup
-  PASS | Not full after balanced write+read
-  PASS | EMPTY after draining all remainder
+  PASS |  er draining all remainder
 
 [T5] Write-When-Full Rejection
-  PASS | FULL before overflow attempt
-  PASS | Still FULL after rejected write
-  PASS | First byte uncorrupted (0x01) after overflow attempt
+  PASS |  L before overflow attempt
+  PASS |  FULL after rejected write
+  PASS |  1) after overflow attempt
 
 [T6] Read-When-Empty Rejection
-  PASS | EMPTY confirmed before spurious read
-  PASS | Still EMPTY after spurious read
+  PASS | rmed before spurious read
+  PASS |  EMPTY after spurious read
   INFO | Empty flag held -- no ghost data produced
 
-================================================
-  RESULTS: 18 PASSED  |  0 FAILED
+========================================
+  RESULTS: 21 PASSED  |  0 FAILED
   STATUS : ALL TESTS PASSED
-================================================# async-cdc-fifo-verilog
+========================================# async-cdc-fifo-verilog

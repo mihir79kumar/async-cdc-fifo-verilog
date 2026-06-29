@@ -1,7 +1,7 @@
 # Asynchronous Clock Domain Crossing (CDC) FIFO System
 
 ## Overview
-This repository contains the design, implementation, and verification of a robust Asynchronous Clock Domain Crossing (CDC) FIFO system in Verilog. The primary objective of this architecture is to safely transfer multi-bit pointer data across two completely independent, unsynchronized clock domains without risking data corruption, pointer desynchronization, or metastability issues.
+This repository contains the design, implementation, and verification of a Asynchronous Clock Domain Crossing (CDC) FIFO system in Verilog. The primary objective of this architecture is to safely transfer multi-bit pointer data across two completely independent, unsynchronized clock domains without risking data corruption, pointer desynchronization, or metastability issues.
 
 The system features a dual-clock FIFO memory core integrated with a dedicated data producer (`mod_a`) running in a **50 MHz write clock domain** and a data consumer (`mod_b`) running in a **75 MHz read clock domain**.
 
